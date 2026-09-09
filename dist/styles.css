@@ -12,6 +12,7 @@
   --night: #25232c;
   --shell-tone: #d8c7b2;
   --radius: 24px;
+  --font-brand: "Instagram Sans", "Figtree", "Avenir Next", sans-serif;
 }
 
 * {
@@ -24,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Manrope", sans-serif;
+  font-family: var(--font-brand);
   color: var(--ink);
   background:
     radial-gradient(circle at top left, rgba(184, 135, 70, 0.16), transparent 30%),
@@ -105,9 +106,10 @@ button {
 }
 
 .brand {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-brand);
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
 }
 
 .main-nav,
@@ -163,10 +165,10 @@ main,
 .journal-copy h2,
 .product-notes h2,
 .editorial-panel h2 {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
-  line-height: 0.92;
-  letter-spacing: -0.02em;
+  font-family: var(--font-brand);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
   margin: 0;
 }
 
@@ -296,8 +298,10 @@ main,
   left: 1.2rem;
   bottom: 1.2rem;
   z-index: 1;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.45rem;
+  font-family: var(--font-brand);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: #fff8ef;
 }
 
@@ -774,8 +778,10 @@ main,
     width: 100%;
     padding: 0.95rem 0;
     border-bottom: 1px solid var(--line);
-    font-family: "Cormorant Garamond", serif;
-    font-size: 2rem;
+    font-family: var(--font-brand);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.035em;
   }
 
   .header-actions {
