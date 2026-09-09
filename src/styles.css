@@ -13,6 +13,7 @@
   --shell-tone: #d8c7b2;
   --radius: 24px;
   --font-brand: "Instagram Sans", "Figtree", "Avenir Next", sans-serif;
+  --font-wordmark: "Comfortaa", "Instagram Sans", "Figtree", sans-serif;
 }
 
 * {
@@ -106,10 +107,14 @@ button {
 }
 
 .brand {
-  font-family: var(--font-brand);
-  font-size: 1.7rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  display: inline-block;
+  font-family: var(--font-wordmark);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.095em;
+  transform: scaleX(1.04);
+  transform-origin: left center;
 }
 
 .main-nav,
@@ -165,10 +170,10 @@ main,
 .journal-copy h2,
 .product-notes h2,
 .editorial-panel h2 {
-  font-family: var(--font-brand);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -0.055em;
+  font-family: var(--font-wordmark);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
   margin: 0;
 }
 
@@ -298,7 +303,7 @@ main,
   left: 1.2rem;
   bottom: 1.2rem;
   z-index: 1;
-  font-family: var(--font-brand);
+  font-family: var(--font-wordmark);
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -734,7 +739,7 @@ main,
   }
 
   .brand {
-    font-size: 1.7rem;
+    font-size: 1.85rem;
   }
 
   .menu-toggle {
@@ -778,7 +783,7 @@ main,
     width: 100%;
     padding: 0.95rem 0;
     border-bottom: 1px solid var(--line);
-    font-family: var(--font-brand);
+    font-family: var(--font-wordmark);
     font-size: 1.65rem;
     font-weight: 600;
     letter-spacing: -0.035em;
