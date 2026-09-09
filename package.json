@@ -1,0 +1,12 @@
+{
+  "name": "anda-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node build/build.js",
+    "serve": "python3 -m http.server 4173 --directory dist"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
