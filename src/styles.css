@@ -16,6 +16,82 @@
   --font-wordmark: "Comfortaa", "Instagram Sans", "Figtree", sans-serif;
 }
 
+/* Interactive commerce additions */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.category-strip button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.filter-panel {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  margin: 0 4vw 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(35, 31, 27, 0.18);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.filter-panel[hidden], .catalog-card[hidden], .empty-results[hidden] { display: none; }
+.filter-panel label { cursor: pointer; }
+.results-count, .empty-results { margin: 0 4vw 1.25rem; font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+
+.color-block { margin-top: 1.5rem; }
+.color-grid { display: flex; gap: .75rem; margin-top: .75rem; }
+.color-chip {
+  width: 2rem; height: 2rem; border: 5px solid #f5efe7; border-radius: 50%;
+  background: var(--swatch); box-shadow: 0 0 0 1px rgba(35, 31, 27, .28); cursor: pointer;
+}
+.color-chip.is-selected { box-shadow: 0 0 0 2px #231f1b; }
+.size-chip:disabled { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+.stock-message { margin: .75rem 0 0; font-size: .78rem; color: #6a594c; }
+
+.quantity-row { display: flex; justify-content: space-between; align-items: center; margin: 1.35rem 0; }
+.quantity-control, .bag-quantity { display: inline-flex; align-items: center; border: 1px solid rgba(35, 31, 27, .25); }
+.quantity-control button, .bag-quantity button { border: 0; background: transparent; cursor: pointer; min-width: 2.3rem; min-height: 2.3rem; font-size: 1rem; }
+.quantity-control span, .bag-quantity span { min-width: 1.8rem; text-align: center; }
+.bag-item-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: .45rem; }
+.bag-item-actions > button { border: 0; background: transparent; padding: 0; text-decoration: underline; cursor: pointer; }
+.shipping-copy { font-size: .76rem; }
+.shipping-track { height: 3px; background: rgba(35, 31, 27, .15); margin: .45rem 0 1.1rem; overflow: hidden; }
+.shipping-track span { display: block; width: 0; height: 100%; background: #231f1b; transition: width .35s ease; }
+
+.size-guide-panel { position: relative; z-index: 2; width: min(620px, calc(100% - 2rem)); margin: auto; background: #f7f1e9; padding: clamp(1.25rem, 4vw, 3rem); }
+.size-table > div { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; padding: .85rem 0; border-bottom: 1px solid rgba(35, 31, 27, .15); }
+.size-guide-note { margin: 1.5rem 0 0; color: #6a594c; }
+.related-products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.product-complement { min-width: 0; }
+
+.page-enter { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+.page-enter.is-ready { opacity: 1; transform: none; }
+.reveal-card { animation: card-reveal .6s both; animation-delay: calc(var(--card-index) * 55ms + 120ms); }
+.image-loading-label { opacity: .22; font-family: "Comfortaa", sans-serif; letter-spacing: .1em; transition: opacity .4s ease; }
+.is-ready .image-loading-label { opacity: 0; }
+@keyframes card-reveal { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 760px) {
+  .filter-panel { align-items: flex-start; flex-direction: column; gap: .8rem; }
+  .sort-group { overflow-x: auto; width: 100%; padding-bottom: .4rem; }
+  .related-products { grid-template-columns: 1fr 1fr; }
+  .related-products .product-tile:last-child { display: none; }
+  .size-guide-panel { max-height: calc(100vh - 2rem); overflow-y: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
 * {
   box-sizing: border-box;
 }

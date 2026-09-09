@@ -10,6 +10,7 @@ import {
   renderHomePage,
   renderProductPage
 } from "./templates";
+import { productHref, products } from "./site-data";
 
 type OutputFile = {
   filename: string;
@@ -25,7 +26,8 @@ const pages: OutputFile[] = [
   { filename: "index.html", content: renderHomePage() },
   { filename: "collection.html", content: renderCollectionPage() },
   { filename: "sub-collection.html", content: renderSetsPage() },
-  { filename: "product.html", content: renderProductPage() }
+  { filename: "product.html", content: renderProductPage(products[0], "product.html") },
+  ...products.map((product) => ({ filename: productHref(product), content: renderProductPage(product) }))
 ];
 
 fs.rmSync(distDir, { recursive: true, force: true });
@@ -37,3 +39,7 @@ pages.forEach((page) => {
 
 fs.copyFileSync(path.join(srcDir, "styles.css"), path.join(distDir, "styles.css"));
 fs.copyFileSync(path.join(buildDir, "client.js"), path.join(distDir, "script.js"));
+fs.copyFileSync(path.join(srcDir, "styles.css"), path.join(distDir, "styles-v2.css"));
+fs.copyFileSync(path.join(buildDir, "client.js"), path.join(distDir, "script-v2.js"));
+fs.copyFileSync(path.join(srcDir, "favicon.svg"), path.join(distDir, "favicon.svg"));
+fs.copyFileSync(path.join(srcDir, "social-card.svg"), path.join(distDir, "social-card.svg"));
