@@ -16,6 +16,54 @@ const fonts = `
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 `;
 
+const commerceActions = `
+  <button class="header-action" type="button" data-open-search>Search</button>
+  <button class="header-action" type="button" data-open-bag>Bag (<span data-bag-count>0</span>)</button>
+`;
+
+const commerceOverlays = `
+  <div class="site-overlay search-overlay" data-search-overlay hidden>
+    <button class="overlay-backdrop" type="button" data-close-overlay aria-label="Close search"></button>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <div class="overlay-heading">
+        <div>
+          <p class="eyebrow">Find your piece</p>
+          <h2 id="search-title">Search Anda</h2>
+        </div>
+        <button class="close-button" type="button" data-close-overlay aria-label="Close search">Close</button>
+      </div>
+      <label class="search-field">
+        <span class="sr-only">Search products</span>
+        <input type="search" placeholder="Search tops, lounge sets..." autocomplete="off" data-search-input />
+      </label>
+      <div class="search-results" data-search-results>
+        <p class="search-hint">Try “shirt”, “short set” or “lounge”.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="site-overlay bag-overlay" data-bag-overlay hidden>
+    <button class="overlay-backdrop" type="button" data-close-overlay aria-label="Close bag"></button>
+    <aside class="bag-panel" role="dialog" aria-modal="true" aria-labelledby="bag-title">
+      <div class="overlay-heading">
+        <div>
+          <p class="eyebrow">Your selection</p>
+          <h2 id="bag-title">Shopping bag</h2>
+        </div>
+        <button class="close-button" type="button" data-close-overlay aria-label="Close bag">Close</button>
+      </div>
+      <div class="bag-items" data-bag-items></div>
+      <div class="bag-summary" data-bag-summary hidden>
+        <div><span>Subtotal</span><strong data-bag-subtotal>$0</strong></div>
+        <p>Shipping and taxes are calculated at checkout.</p>
+        <button class="button primary full" type="button" disabled>Checkout coming soon</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cart-toast" role="status" aria-live="polite" data-cart-toast hidden>Added to your bag</div>
+`;
+
 function renderNav(links: NavLink[]): string {
   return links
     .map((link) => `<a href="${link.href}"${link.active ? ' class="active"' : ""}>${link.label}</a>`)
@@ -46,7 +94,7 @@ function renderProductCards(cards: ProductCard[], cardClass: "product-tile" | "c
     .join("");
 }
 
-function pageShell(title: string, bodyClass: string, announcement: string, nav: NavLink[], actions: string, main: string): string {
+function pageShell(title: string, bodyClass: string, announcement: string, nav: NavLink[], main: string): string {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,10 +115,11 @@ function pageShell(title: string, bodyClass: string, announcement: string, nav: 
       </button>
       <div class="header-drawer" id="site-navigation">
         <nav class="main-nav">${renderNav(nav)}</nav>
-        <div class="header-actions">${actions}</div>
+        <div class="header-actions">${commerceActions}</div>
       </div>
     </header>
     ${main}
+    ${commerceOverlays}
   </body>
 </html>`;
 }
@@ -178,7 +227,6 @@ export function renderHomePage(): string {
     "theme-sand",
     "Complimentary express shipping on orders over $250",
     homeNav,
-    "<span>Search</span><span>Bag (2)</span>",
     main
   );
 }
@@ -225,7 +273,6 @@ export function renderCollectionPage(): string {
     "theme-shell",
     "New season arrivals now live",
     collectionNav,
-    "<span>Account</span><span>Bag (2)</span>",
     main
   );
 }
@@ -271,7 +318,6 @@ export function renderSetsPage(): string {
     "theme-shell",
     "Coordinated sets for home, weekends and everywhere in between",
     setsNav,
-    "<span>Search</span><span>Bag (2)</span>",
     main
   );
 }
@@ -316,7 +362,7 @@ export function renderProductPage(): string {
           </div>
 
           <div class="cta-stack">
-            <button class="button primary full">Add to bag</button>
+            <button class="button primary full" type="button" data-add-to-bag data-product-name="Venti Lounge Set" data-product-price="240" data-product-tone="tone-clay">Add to bag</button>
             <button class="button secondary full">Add to wishlist</button>
           </div>
 
@@ -365,7 +411,6 @@ export function renderProductPage(): string {
     "theme-product",
     "The Venti Lounge Set is available in limited quantities",
     productNav,
-    "<span>Wishlist</span><span>Bag (2)</span>",
     main
   );
 }

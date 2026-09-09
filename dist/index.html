@@ -22,7 +22,10 @@
       </button>
       <div class="header-drawer" id="site-navigation">
         <nav class="main-nav"><a href="collection.html">Shop All</a><a href="sub-collection.html">Sets</a><a href="product.html">Featured Product</a><a href="#journal">World of Anda</a></nav>
-        <div class="header-actions"><span>Search</span><span>Bag (2)</span></div>
+        <div class="header-actions">
+  <button class="header-action" type="button" data-open-search>Search</button>
+  <button class="header-action" type="button" data-open-bag>Bag (<span data-bag-count>0</span>)</button>
+</div>
       </div>
     </header>
     
@@ -149,5 +152,47 @@
       </div>
     </footer>
   
+    
+  <div class="site-overlay search-overlay" data-search-overlay hidden>
+    <button class="overlay-backdrop" type="button" data-close-overlay aria-label="Close search"></button>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <div class="overlay-heading">
+        <div>
+          <p class="eyebrow">Find your piece</p>
+          <h2 id="search-title">Search Anda</h2>
+        </div>
+        <button class="close-button" type="button" data-close-overlay aria-label="Close search">Close</button>
+      </div>
+      <label class="search-field">
+        <span class="sr-only">Search products</span>
+        <input type="search" placeholder="Search tops, lounge sets..." autocomplete="off" data-search-input />
+      </label>
+      <div class="search-results" data-search-results>
+        <p class="search-hint">Try “shirt”, “short set” or “lounge”.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="site-overlay bag-overlay" data-bag-overlay hidden>
+    <button class="overlay-backdrop" type="button" data-close-overlay aria-label="Close bag"></button>
+    <aside class="bag-panel" role="dialog" aria-modal="true" aria-labelledby="bag-title">
+      <div class="overlay-heading">
+        <div>
+          <p class="eyebrow">Your selection</p>
+          <h2 id="bag-title">Shopping bag</h2>
+        </div>
+        <button class="close-button" type="button" data-close-overlay aria-label="Close bag">Close</button>
+      </div>
+      <div class="bag-items" data-bag-items></div>
+      <div class="bag-summary" data-bag-summary hidden>
+        <div><span>Subtotal</span><strong data-bag-subtotal>$0</strong></div>
+        <p>Shipping and taxes are calculated at checkout.</p>
+        <button class="button primary full" type="button" disabled>Checkout coming soon</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="cart-toast" role="status" aria-live="polite" data-cart-toast hidden>Added to your bag</div>
+
   </body>
 </html>
