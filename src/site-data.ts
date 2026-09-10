@@ -29,11 +29,11 @@ const sizes = (soldOut = ""): ProductSize[] =>
 export const products: Product[] = [
   {
     slug: "venti-lounge-set", name: "Venti Lounge Set", category: "lounge",
-    categoryLabel: "Lounge sets", meta: "Shirt and trousers", price: 240, tone: "tone-clay",
+    categoryLabel: "Lounge sets", meta: "Shirt and trousers", price: 240000, tone: "tone-clay",
     colors: [
-      { name: "Clay", tone: "tone-clay", hex: "#b66743" },
-      { name: "Oasis", tone: "tone-oasis", hex: "#63786b" },
-      { name: "Ink", tone: "tone-ink", hex: "#292b31" }
+      { name: "Coral", tone: "tone-clay", hex: "#f05a3c" },
+      { name: "Emerald", tone: "tone-oasis", hex: "#087f5b" },
+      { name: "Aubergine", tone: "tone-ink", hex: "#3f173f" }
     ],
     sizes: sizes(),
     description: "An easy, textural pairing cut for slow mornings and considered evenings. Wear the pieces together or separately.",
@@ -43,10 +43,10 @@ export const products: Product[] = [
   },
   {
     slug: "serein-short-set", name: "Serein Short Set", category: "shorts",
-    categoryLabel: "Shirt and shorts", meta: "Relaxed two-piece", price: 195, tone: "tone-oasis",
+    categoryLabel: "Shirt and shorts", meta: "Relaxed two-piece", price: 195000, tone: "tone-oasis",
     colors: [
-      { name: "Oasis", tone: "tone-oasis", hex: "#63786b" },
-      { name: "Shell", tone: "tone-shell", hex: "#d8c5ad" }
+      { name: "Emerald", tone: "tone-oasis", hex: "#087f5b" },
+      { name: "Mango", tone: "tone-shell", hex: "#ff9f1c" }
     ],
     sizes: sizes(),
     description: "A relaxed camp shirt and softly tailored short designed for warm days and effortless layering.",
@@ -56,10 +56,10 @@ export const products: Product[] = [
   },
   {
     slug: "noma-shirt", name: "Noma Shirt", category: "tops",
-    categoryLabel: "Tops", meta: "Soft linen blend", price: 110, tone: "tone-sage",
+    categoryLabel: "Tops", meta: "Soft linen blend", price: 110000, tone: "tone-sage",
     colors: [
-      { name: "Sage", tone: "tone-sage", hex: "#9fa58b" },
-      { name: "Shell", tone: "tone-shell", hex: "#d8c5ad" }
+      { name: "Cobalt", tone: "tone-sage", hex: "#2453ff" },
+      { name: "Mango", tone: "tone-shell", hex: "#ff9f1c" }
     ],
     sizes: sizes(),
     description: "A softly structured everyday shirt with an open collar and a generous, easy line.",
@@ -69,10 +69,10 @@ export const products: Product[] = [
   },
   {
     slug: "turi-trouser-set", name: "Turi Trouser Set", category: "trousers",
-    categoryLabel: "Shirt and trousers", meta: "Fluid tailoring", price: 265, tone: "tone-night",
+    categoryLabel: "Shirt and trousers", meta: "Fluid tailoring", price: 265000, tone: "tone-night",
     colors: [
-      { name: "Night", tone: "tone-night", hex: "#29323d" },
-      { name: "Rose", tone: "tone-rose", hex: "#b88276" }
+      { name: "Midnight", tone: "tone-night", hex: "#13213c" },
+      { name: "Fuchsia", tone: "tone-rose", hex: "#db2777" }
     ],
     sizes: sizes(),
     description: "Fluid tailoring without the formality: a long-line shirt and wide trouser with an elegant drape.",
@@ -82,10 +82,10 @@ export const products: Product[] = [
   },
   {
     slug: "kori-box-shirt", name: "Kori Box Shirt", category: "tops",
-    categoryLabel: "Tops", meta: "Washed cotton", price: 115, tone: "tone-night",
+    categoryLabel: "Tops", meta: "Washed cotton", price: 115000, tone: "tone-night",
     colors: [
-      { name: "Ink", tone: "tone-ink", hex: "#292b31" },
-      { name: "Gold", tone: "tone-gold", hex: "#b7914e" }
+      { name: "Aubergine", tone: "tone-ink", hex: "#3f173f" },
+      { name: "Marigold", tone: "tone-gold", hex: "#f4b400" }
     ],
     sizes: sizes("M"),
     description: "A crisp box-cut shirt softened by a garment wash and finished with a clean concealed placket.",
@@ -95,10 +95,10 @@ export const products: Product[] = [
   },
   {
     slug: "ayo-trouser-set", name: "Ayo Trouser Set", category: "trousers",
-    categoryLabel: "Shirt and trousers", meta: "Relaxed tailoring", price: 255, tone: "tone-sage",
+    categoryLabel: "Shirt and trousers", meta: "Relaxed tailoring", price: 255000, tone: "tone-sage",
     colors: [
-      { name: "Sage", tone: "tone-sage", hex: "#9fa58b" },
-      { name: "Clay", tone: "tone-clay", hex: "#b66743" }
+      { name: "Cobalt", tone: "tone-sage", hex: "#2453ff" },
+      { name: "Coral", tone: "tone-clay", hex: "#f05a3c" }
     ],
     sizes: sizes(),
     description: "A polished two-piece that keeps the ease of loungewear through soft structure and a fluid silhouette.",
@@ -108,10 +108,10 @@ export const products: Product[] = [
   },
   {
     slug: "tani-camp-shirt", name: "Tani Camp Shirt", category: "tops",
-    categoryLabel: "Tops", meta: "Silk-touch twill", price: 125, tone: "tone-rose",
+    categoryLabel: "Tops", meta: "Silk-touch twill", price: 125000, tone: "tone-rose",
     colors: [
-      { name: "Rose", tone: "tone-rose", hex: "#b88276" },
-      { name: "Ink", tone: "tone-ink", hex: "#292b31" }
+      { name: "Fuchsia", tone: "tone-rose", hex: "#db2777" },
+      { name: "Aubergine", tone: "tone-ink", hex: "#3f173f" }
     ],
     sizes: sizes(),
     description: "A refined camp shirt with a fluid hand, neat collar and easy curved hem.",
@@ -121,10 +121,10 @@ export const products: Product[] = [
   },
   {
     slug: "mira-lounge-set", name: "Mira Lounge Set", category: "lounge",
-    categoryLabel: "Lounge sets", meta: "Cotton voile", price: 220, tone: "tone-shell",
+    categoryLabel: "Lounge sets", meta: "Cotton voile", price: 220000, tone: "tone-shell",
     colors: [
-      { name: "Shell", tone: "tone-shell", hex: "#d8c5ad" },
-      { name: "Oasis", tone: "tone-oasis", hex: "#63786b" }
+      { name: "Mango", tone: "tone-shell", hex: "#ff9f1c" },
+      { name: "Emerald", tone: "tone-oasis", hex: "#087f5b" }
     ],
     sizes: sizes(),
     description: "A light cotton voile set built for comfort, movement and understated warm-weather dressing.",
@@ -134,10 +134,10 @@ export const products: Product[] = [
   },
   {
     slug: "noor-short-set", name: "Noor Short Set", category: "shorts",
-    categoryLabel: "Shirt and shorts", meta: "Textured linen", price: 205, tone: "tone-gold",
+    categoryLabel: "Shirt and shorts", meta: "Textured linen", price: 205000, tone: "tone-gold",
     colors: [
-      { name: "Gold", tone: "tone-gold", hex: "#b7914e" },
-      { name: "Shell", tone: "tone-shell", hex: "#d8c5ad" }
+      { name: "Marigold", tone: "tone-gold", hex: "#f4b400" },
+      { name: "Mango", tone: "tone-shell", hex: "#ff9f1c" }
     ],
     sizes: sizes(),
     description: "Textured linen gives this relaxed shirt-and-short set a tactile finish and naturally elegant drape.",
@@ -147,10 +147,10 @@ export const products: Product[] = [
   },
   {
     slug: "rani-relaxed-shirt", name: "Rani Relaxed Shirt", category: "tops",
-    categoryLabel: "Tops", meta: "Fluid jersey", price: 105, tone: "tone-ink",
+    categoryLabel: "Tops", meta: "Fluid jersey", price: 105000, tone: "tone-ink",
     colors: [
-      { name: "Ink", tone: "tone-ink", hex: "#292b31" },
-      { name: "Clay", tone: "tone-clay", hex: "#b66743" }
+      { name: "Aubergine", tone: "tone-ink", hex: "#3f173f" },
+      { name: "Coral", tone: "tone-clay", hex: "#f05a3c" }
     ],
     sizes: sizes(),
     description: "A fluid jersey shirt with a clean neckline and the comfort of a favourite tee.",

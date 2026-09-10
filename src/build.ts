@@ -41,5 +41,7 @@ fs.copyFileSync(path.join(srcDir, "styles.css"), path.join(distDir, "styles.css"
 fs.copyFileSync(path.join(buildDir, "client.js"), path.join(distDir, "script.js"));
 fs.copyFileSync(path.join(srcDir, "styles.css"), path.join(distDir, "styles-v2.css"));
 fs.copyFileSync(path.join(buildDir, "client.js"), path.join(distDir, "script-v2.js"));
+fs.copyFileSync(path.join(srcDir, "styles.css"), path.join(distDir, "styles-v3.css"));
+fs.copyFileSync(path.join(buildDir, "client.js"), path.join(distDir, "script-v3.js"));
 fs.copyFileSync(path.join(srcDir, "favicon.svg"), path.join(distDir, "favicon.svg"));
 fs.copyFileSync(path.join(srcDir, "social-card.svg"), path.join(distDir, "social-card.svg"));

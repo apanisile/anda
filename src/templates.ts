@@ -10,6 +10,10 @@ const fonts = `
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />`;
 
 const commerceActions = `
+  <label class="market-selector"><span class="sr-only">Shopping location</span>
+    <select data-market-select aria-label="Shopping location">
+      <option value="NG">Nigeria (₦)</option><option value="US">United States ($)</option><option value="GB">United Kingdom (£)</option>
+    </select></label>
   <button class="header-action" type="button" data-open-search>Search</button>
   <button class="header-action" type="button" data-open-bag>Bag (<span data-bag-count>0</span>)</button>`;
 
@@ -37,7 +41,7 @@ const commerceOverlays = `
       <div class="bag-summary" data-bag-summary hidden>
         <div class="shipping-copy"><span data-shipping-message></span><strong data-shipping-value></strong></div>
         <div class="shipping-track"><span data-shipping-progress></span></div>
-        <div><span>Subtotal</span><strong data-bag-subtotal>$0</strong></div>
+        <div><span>Subtotal</span><strong data-bag-subtotal>₦0</strong></div>
         <p>Shipping and taxes are calculated at checkout.</p>
         <button class="button primary full" type="button" disabled>Checkout coming soon</button>
       </div>
@@ -72,7 +76,7 @@ function renderProductCards(cards: Product[], cardClass: "product-tile" | "catal
       data-product-card data-category="${product.category}" data-price="${product.price}" data-release="${product.releaseOrder}">
       <div class="${imageClass}"><span class="image-loading-label">Anda</span></div>
       <p class="${prefix}-name">${product.name}</p><p class="${prefix}-meta">${product.meta}</p>
-      <p class="${prefix}-price">$${product.price}</p></a>`;
+      <p class="${prefix}-price" data-display-price data-price="${product.price}">₦${product.price.toLocaleString("en-NG")}</p></a>`;
   }).join("");
 }
 
@@ -90,7 +94,7 @@ function pageShell(options: {
     <meta property="og:title" content="${options.title}" /><meta property="og:description" content="${options.description}" />
     <meta property="og:type" content="website" /><meta property="og:url" content="${canonical}" />
     <meta property="og:image" content="${siteUrl}social-card.svg" /><meta name="twitter:card" content="summary_large_image" />
-    ${fonts}<link rel="stylesheet" href="styles-v2.css" /><script defer src="script-v2.js"></script>${jsonLd}
+    ${fonts}<link rel="stylesheet" href="styles-v3.css" /><script defer src="script-v3.js"></script>${jsonLd}
   </head><body class="${options.bodyClass} page-enter">
     <div class="announcement-bar">${options.announcement}</div>
     <header class="site-header${options.bodyClass === "theme-sand" ? "" : " compact"}">
@@ -120,7 +124,7 @@ export function renderHomePage(): string {
     </main><footer class="site-footer"><div><p class="brand footer-brand">Anda</p><p>Considered clothing for unhurried days and warm places.</p></div>
       <div class="footer-links"><a href="collection.html">Shop all</a><a href="sub-collection.html">Sets</a><a href="${featured}">Venti set</a></div></footer>`;
   return pageShell({ title: "Anda | Considered clothing", bodyClass: "theme-sand",
-    announcement: "Complimentary express shipping on orders over $250", nav: homeNav, main,
+    announcement: "Complimentary express shipping on orders over ₦250,000", nav: homeNav, main,
     description: "Relaxed shirts, tops and coordinated sets designed for warm places.", pathname: "index.html" });
 }
 
@@ -163,7 +167,7 @@ export function renderProductPage(product: Product = products[0], pathname = pro
     <section class="product-layout"><div class="product-gallery"><div class="gallery-main ${product.colors[0].tone}" data-main-image><span>${product.colors[0].name}</span></div>
       <div class="gallery-thumbs">${product.colors.map((color, index) => `<button class="thumb ${color.tone}${index === 0 ? " is-selected" : ""}" data-swatch="${color.tone}" data-label="${color.name}">${String(index + 1).padStart(2, "0")}</button>`).join("")}</div></div>
     <aside class="product-panel"><p class="eyebrow">${product.categoryLabel}</p><h1>${product.name}</h1>
-      <p class="product-subtitle">${product.meta}</p><p class="product-price">$${product.price}</p><p class="product-description">${product.description}</p>
+      <p class="product-subtitle">${product.meta}</p><p class="product-price" data-display-price data-price="${product.price}">₦${product.price.toLocaleString("en-NG")}</p><p class="product-description">${product.description}</p>
       <div class="color-block"><div class="size-header"><span>Color: <strong data-color-name>${product.colors[0].name}</strong></span></div>
         <div class="color-grid">${product.colors.map((color, index) => `<button class="color-chip${index === 0 ? " is-selected" : ""}" type="button" style="--swatch:${color.hex}" data-color-name="${color.name}" data-color-tone="${color.tone}" aria-label="${color.name}"></button>`).join("")}</div></div>
       <div class="size-block"><div class="size-header"><span>Size</span><button class="text-link" type="button" data-open-size-guide>Size guide</button></div>
@@ -173,12 +177,12 @@ export function renderProductPage(product: Product = products[0], pathname = pro
       <div class="cta-stack"><button class="button primary full" type="button" data-add-to-bag data-product-slug="${product.slug}" data-product-name="${product.name}" data-product-price="${product.price}" data-product-tone="${product.colors[0].tone}" data-product-color="${product.colors[0].name}">Add to bag</button>
         <button class="button secondary full" type="button">Add to wishlist</button></div>
       <dl class="detail-list"><div><dt>Composition</dt><dd>${product.composition}</dd></div><div><dt>Fit</dt><dd>${product.fit}</dd></div>
-        <div><dt>Delivery</dt><dd>Complimentary express shipping on orders over $250.</dd></div></dl></aside></section>
+        <div><dt>Delivery</dt><dd>Complimentary express shipping on orders over ₦250,000.</dd></div></dl></aside></section>
     <section class="product-notes"><article><p class="eyebrow">Editorial Note</p><h2>Easy pieces, considered together.</h2><p>${product.description}</p></article>
       <article class="product-complement"><p class="eyebrow">You may also like</p><div class="related-products">${renderProductCards(related, "product-tile")}</div></article></section></main>`;
   const structuredData = { "@context": "https://schema.org", "@type": "Product", name: product.name,
     description: product.description, brand: { "@type": "Brand", name: "Anda" }, category: product.categoryLabel,
-    offers: { "@type": "Offer", priceCurrency: "USD", price: product.price, availability: "https://schema.org/InStock", url: `${siteUrl}${pathname}` } };
+    offers: { "@type": "Offer", priceCurrency: "NGN", price: product.price, availability: "https://schema.org/InStock", url: `${siteUrl}${pathname}` } };
   return pageShell({ title: `Anda | ${product.name}`, bodyClass: "theme-product",
     announcement: `${product.name} is available in limited quantities`, nav: productNav, main,
     description: `${product.name}. ${product.description}`, pathname, structuredData });

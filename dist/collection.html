@@ -8,13 +8,17 @@
     
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles-v2.css" /><script defer src="script-v2.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles-v3.css" /><script defer src="script-v3.js"></script>
   </head><body class="theme-shell page-enter">
     <div class="announcement-bar">New season arrivals now live</div>
     <header class="site-header compact">
       <a class="brand" href="index.html" aria-label="Anda home">Anda</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <div class="header-drawer" id="site-navigation"><nav class="main-nav"><a href="collection.html" class="active">Shop All</a><a href="sub-collection.html">Sets</a><a href="product-venti-lounge-set.html">Featured Product</a></nav><div class="header-actions">
+  <label class="market-selector"><span class="sr-only">Shopping location</span>
+    <select data-market-select aria-label="Shopping location">
+      <option value="NG">Nigeria (₦)</option><option value="US">United States ($)</option><option value="GB">United Kingdom (£)</option>
+    </select></label>
   <button class="header-action" type="button" data-open-search>Search</button>
   <button class="header-action" type="button" data-open-bag>Bag (<span data-bag-count>0</span>)</button></div></div>
     </header><main class="listing-page"><section class="listing-hero"><p class="eyebrow">The Collection</p>
@@ -28,46 +32,46 @@
       <button class="text-link" type="button" data-clear-filters>Clear filters</button></section>
     <p class="results-count"><span data-results-count>10</span> pieces</p>
     <section class="product-grid" data-product-grid><a class="catalog-card reveal-card" style="--card-index:0" href="product-venti-lounge-set.html"
-      data-product-card data-category="lounge" data-price="240" data-release="10">
+      data-product-card data-category="lounge" data-price="240000" data-release="10">
       <div class="catalog-image tone-clay"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Venti Lounge Set</p><p class="catalog-meta">Shirt and trousers</p>
-      <p class="catalog-price">$240</p></a><a class="catalog-card reveal-card" style="--card-index:1" href="product-serein-short-set.html"
-      data-product-card data-category="shorts" data-price="195" data-release="9">
+      <p class="catalog-price" data-display-price data-price="240000">₦240,000</p></a><a class="catalog-card reveal-card" style="--card-index:1" href="product-serein-short-set.html"
+      data-product-card data-category="shorts" data-price="195000" data-release="9">
       <div class="catalog-image tone-oasis"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Serein Short Set</p><p class="catalog-meta">Relaxed two-piece</p>
-      <p class="catalog-price">$195</p></a><a class="catalog-card reveal-card" style="--card-index:2" href="product-noma-shirt.html"
-      data-product-card data-category="tops" data-price="110" data-release="8">
+      <p class="catalog-price" data-display-price data-price="195000">₦195,000</p></a><a class="catalog-card reveal-card" style="--card-index:2" href="product-noma-shirt.html"
+      data-product-card data-category="tops" data-price="110000" data-release="8">
       <div class="catalog-image tone-sage"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Noma Shirt</p><p class="catalog-meta">Soft linen blend</p>
-      <p class="catalog-price">$110</p></a><a class="catalog-card reveal-card" style="--card-index:3" href="product-turi-trouser-set.html"
-      data-product-card data-category="trousers" data-price="265" data-release="7">
+      <p class="catalog-price" data-display-price data-price="110000">₦110,000</p></a><a class="catalog-card reveal-card" style="--card-index:3" href="product-turi-trouser-set.html"
+      data-product-card data-category="trousers" data-price="265000" data-release="7">
       <div class="catalog-image tone-night"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Turi Trouser Set</p><p class="catalog-meta">Fluid tailoring</p>
-      <p class="catalog-price">$265</p></a><a class="catalog-card reveal-card" style="--card-index:4" href="product-kori-box-shirt.html"
-      data-product-card data-category="tops" data-price="115" data-release="6">
+      <p class="catalog-price" data-display-price data-price="265000">₦265,000</p></a><a class="catalog-card reveal-card" style="--card-index:4" href="product-kori-box-shirt.html"
+      data-product-card data-category="tops" data-price="115000" data-release="6">
       <div class="catalog-image tone-night"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Kori Box Shirt</p><p class="catalog-meta">Washed cotton</p>
-      <p class="catalog-price">$115</p></a><a class="catalog-card reveal-card" style="--card-index:5" href="product-ayo-trouser-set.html"
-      data-product-card data-category="trousers" data-price="255" data-release="5">
+      <p class="catalog-price" data-display-price data-price="115000">₦115,000</p></a><a class="catalog-card reveal-card" style="--card-index:5" href="product-ayo-trouser-set.html"
+      data-product-card data-category="trousers" data-price="255000" data-release="5">
       <div class="catalog-image tone-sage"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Ayo Trouser Set</p><p class="catalog-meta">Relaxed tailoring</p>
-      <p class="catalog-price">$255</p></a><a class="catalog-card reveal-card" style="--card-index:6" href="product-tani-camp-shirt.html"
-      data-product-card data-category="tops" data-price="125" data-release="4">
+      <p class="catalog-price" data-display-price data-price="255000">₦255,000</p></a><a class="catalog-card reveal-card" style="--card-index:6" href="product-tani-camp-shirt.html"
+      data-product-card data-category="tops" data-price="125000" data-release="4">
       <div class="catalog-image tone-rose"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Tani Camp Shirt</p><p class="catalog-meta">Silk-touch twill</p>
-      <p class="catalog-price">$125</p></a><a class="catalog-card reveal-card" style="--card-index:7" href="product-mira-lounge-set.html"
-      data-product-card data-category="lounge" data-price="220" data-release="3">
+      <p class="catalog-price" data-display-price data-price="125000">₦125,000</p></a><a class="catalog-card reveal-card" style="--card-index:7" href="product-mira-lounge-set.html"
+      data-product-card data-category="lounge" data-price="220000" data-release="3">
       <div class="catalog-image tone-shell"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Mira Lounge Set</p><p class="catalog-meta">Cotton voile</p>
-      <p class="catalog-price">$220</p></a><a class="catalog-card reveal-card" style="--card-index:8" href="product-noor-short-set.html"
-      data-product-card data-category="shorts" data-price="205" data-release="2">
+      <p class="catalog-price" data-display-price data-price="220000">₦220,000</p></a><a class="catalog-card reveal-card" style="--card-index:8" href="product-noor-short-set.html"
+      data-product-card data-category="shorts" data-price="205000" data-release="2">
       <div class="catalog-image tone-gold"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Noor Short Set</p><p class="catalog-meta">Textured linen</p>
-      <p class="catalog-price">$205</p></a><a class="catalog-card reveal-card" style="--card-index:9" href="product-rani-relaxed-shirt.html"
-      data-product-card data-category="tops" data-price="105" data-release="1">
+      <p class="catalog-price" data-display-price data-price="205000">₦205,000</p></a><a class="catalog-card reveal-card" style="--card-index:9" href="product-rani-relaxed-shirt.html"
+      data-product-card data-category="tops" data-price="105000" data-release="1">
       <div class="catalog-image tone-ink"><span class="image-loading-label">Anda</span></div>
       <p class="catalog-name">Rani Relaxed Shirt</p><p class="catalog-meta">Fluid jersey</p>
-      <p class="catalog-price">$105</p></a></section>
+      <p class="catalog-price" data-display-price data-price="105000">₦105,000</p></a></section>
     <p class="empty-results" data-empty-results hidden>No pieces match those filters.</p></main>
   <div class="site-overlay search-overlay" data-search-overlay hidden>
     <button class="overlay-backdrop" type="button" data-close-overlay aria-label="Close search"></button>
@@ -88,7 +92,7 @@
       <div class="bag-summary" data-bag-summary hidden>
         <div class="shipping-copy"><span data-shipping-message></span><strong data-shipping-value></strong></div>
         <div class="shipping-track"><span data-shipping-progress></span></div>
-        <div><span>Subtotal</span><strong data-bag-subtotal>$0</strong></div>
+        <div><span>Subtotal</span><strong data-bag-subtotal>₦0</strong></div>
         <p>Shipping and taxes are calculated at checkout.</p>
         <button class="button primary full" type="button" disabled>Checkout coming soon</button>
       </div>
@@ -110,4 +114,4 @@
     </section>
   </div>
   <div class="cart-toast" role="status" aria-live="polite" data-cart-toast hidden>Added to your bag</div>
-  <script id="product-search-data" type="application/json">[{"name":"Venti Lounge Set","category":"Lounge sets","price":240,"href":"product-venti-lounge-set.html"},{"name":"Serein Short Set","category":"Shirt and shorts","price":195,"href":"product-serein-short-set.html"},{"name":"Noma Shirt","category":"Tops","price":110,"href":"product-noma-shirt.html"},{"name":"Turi Trouser Set","category":"Shirt and trousers","price":265,"href":"product-turi-trouser-set.html"},{"name":"Kori Box Shirt","category":"Tops","price":115,"href":"product-kori-box-shirt.html"},{"name":"Ayo Trouser Set","category":"Shirt and trousers","price":255,"href":"product-ayo-trouser-set.html"},{"name":"Tani Camp Shirt","category":"Tops","price":125,"href":"product-tani-camp-shirt.html"},{"name":"Mira Lounge Set","category":"Lounge sets","price":220,"href":"product-mira-lounge-set.html"},{"name":"Noor Short Set","category":"Shirt and shorts","price":205,"href":"product-noor-short-set.html"},{"name":"Rani Relaxed Shirt","category":"Tops","price":105,"href":"product-rani-relaxed-shirt.html"}]</script></body></html>
+  <script id="product-search-data" type="application/json">[{"name":"Venti Lounge Set","category":"Lounge sets","price":240000,"href":"product-venti-lounge-set.html"},{"name":"Serein Short Set","category":"Shirt and shorts","price":195000,"href":"product-serein-short-set.html"},{"name":"Noma Shirt","category":"Tops","price":110000,"href":"product-noma-shirt.html"},{"name":"Turi Trouser Set","category":"Shirt and trousers","price":265000,"href":"product-turi-trouser-set.html"},{"name":"Kori Box Shirt","category":"Tops","price":115000,"href":"product-kori-box-shirt.html"},{"name":"Ayo Trouser Set","category":"Shirt and trousers","price":255000,"href":"product-ayo-trouser-set.html"},{"name":"Tani Camp Shirt","category":"Tops","price":125000,"href":"product-tani-camp-shirt.html"},{"name":"Mira Lounge Set","category":"Lounge sets","price":220000,"href":"product-mira-lounge-set.html"},{"name":"Noor Short Set","category":"Shirt and shorts","price":205000,"href":"product-noor-short-set.html"},{"name":"Rani Relaxed Shirt","category":"Tops","price":105000,"href":"product-rani-relaxed-shirt.html"}]</script></body></html>

@@ -1,16 +1,16 @@
 :root {
-  --bg: #f4ede2;
-  --shell: #f7f2ea;
-  --paper: #fbf8f2;
-  --ink: #17120f;
-  --muted: #5f564d;
-  --line: rgba(23, 18, 15, 0.14);
-  --gold: #b88746;
-  --oasis: #a2a789;
-  --rose: #b57c71;
-  --clay: #a85f4c;
-  --night: #25232c;
-  --shell-tone: #d8c7b2;
+  --bg: #fff1d7;
+  --shell: #fff8ea;
+  --paper: #fffdf6;
+  --ink: #261329;
+  --muted: #654b61;
+  --line: rgba(63, 23, 63, 0.16);
+  --gold: #f4b400;
+  --oasis: #087f5b;
+  --rose: #db2777;
+  --clay: #f05a3c;
+  --night: #13213c;
+  --shell-tone: #ff9f1c;
   --radius: 24px;
   --font-brand: "Instagram Sans", "Figtree", "Avenir Next", sans-serif;
   --font-wordmark: "Comfortaa", "Instagram Sans", "Figtree", sans-serif;
@@ -105,8 +105,9 @@ body {
   font-family: var(--font-brand);
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(184, 135, 70, 0.16), transparent 30%),
-    linear-gradient(180deg, #f7f0e5 0%, #f3ecdf 100%);
+    radial-gradient(circle at 5% 2%, rgba(240, 90, 60, 0.22), transparent 30%),
+    radial-gradient(circle at 95% 35%, rgba(36, 83, 255, 0.10), transparent 34%),
+    linear-gradient(180deg, #fff8e9 0%, #ffefd2 100%);
 }
 
 a {
@@ -124,8 +125,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.72rem;
-  background: #1b1714;
-  color: #f5efe8;
+  background: #3f173f;
+  color: #fff7df;
 }
 
 .site-header {
@@ -135,7 +136,7 @@ button {
   gap: 1rem;
   padding: 1.35rem 2rem;
   border-bottom: 1px solid var(--line);
-  background: rgba(251, 248, 242, 0.82);
+  background: rgba(255, 248, 234, 0.86);
   backdrop-filter: blur(18px);
   position: sticky;
   top: 0;
@@ -236,9 +237,21 @@ button {
   opacity: 1;
 }
 
+.market-selector select {
+  max-width: 10.5rem;
+  padding: 0.45rem 1.8rem 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
 .main-nav a.active,
 .main-nav a:hover,
-.category-strip a.active-link {
+.category-strip a.active-link,
+.category-strip button.active-link {
   opacity: 1;
   text-decoration: underline;
   text-underline-offset: 0.35rem;
@@ -318,8 +331,9 @@ main,
 }
 
 .button.primary {
-  background: var(--ink);
-  color: #f8f3ec;
+  background: #f05a3c;
+  border-color: #f05a3c;
+  color: #fffdf6;
 }
 
 .button.secondary,
@@ -387,7 +401,7 @@ main,
   min-height: 100%;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #c89c57, #8d5536 58%, #493126);
+    linear-gradient(135deg, #ffb000, #f05a3c 55%, #9c1b5b);
 }
 
 .hero-card-wide {
@@ -395,7 +409,7 @@ main,
   min-height: 60%;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0)),
-    linear-gradient(135deg, #8d9077, #dbb28b 55%, #72513e);
+    linear-gradient(135deg, #0aa174, #2453ff 55%, #3f173f);
 }
 
 .card-label,
@@ -438,15 +452,15 @@ main,
 }
 
 .panel-gold {
-  background: linear-gradient(135deg, #d5bb97, #e9ddc7);
+  background: linear-gradient(135deg, #ffc928, #ff8a1f);
 }
 
 .panel-cream {
-  background: linear-gradient(135deg, #f1ebde, #ded2c2);
+  background: linear-gradient(135deg, #ff9cbf, #f05a3c);
 }
 
 .panel-ink {
-  background: linear-gradient(135deg, #26212a, #55463e);
+  background: linear-gradient(135deg, #2453ff, #3f173f);
   color: #fff8ef;
 }
 
@@ -542,13 +556,13 @@ main,
   color: #fff8ef;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)),
-    linear-gradient(135deg, #3f3025, #c08b53);
+    linear-gradient(135deg, #db2777, #f05a3c);
 }
 
 .journal-card.alt {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)),
-    linear-gradient(135deg, #58604b, #928066);
+    linear-gradient(135deg, #087f5b, #2453ff);
 }
 
 .site-footer {
@@ -955,49 +969,49 @@ body.overlay-open {
 .tone-clay {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #bc7a57, #7d4635 60%, #40251d);
+    linear-gradient(135deg, #ff9f1c, #f05a3c 58%, #9c1b5b);
 }
 
 .tone-oasis {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #c8bf9d, #90967b 60%, #565947);
+    linear-gradient(135deg, #28d17c, #087f5b 58%, #064b43);
 }
 
 .tone-sage {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #cfc4a7, #88906d 60%, #50533f);
+    linear-gradient(135deg, #6aa5ff, #2453ff 58%, #24208f);
 }
 
 .tone-night {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)),
-    linear-gradient(135deg, #505466, #24222b 58%, #121117);
+    linear-gradient(135deg, #2453ff, #13213c 58%, #090d20);
 }
 
 .tone-rose {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #c89b96, #9b6459 58%, #5f3d38);
+    linear-gradient(135deg, #ff8fbe, #db2777 58%, #7d174b);
 }
 
 .tone-shell {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0)),
-    linear-gradient(135deg, #ece3d4, #c1ab91 58%, #8d6b58);
+    linear-gradient(135deg, #ffd447, #ff9f1c 58%, #e84d0e);
 }
 
 .tone-gold {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0)),
-    linear-gradient(135deg, #dbcc98, #bd8a45 55%, #7c5628);
+    linear-gradient(135deg, #ffe45c, #f4b400 55%, #e26000);
 }
 
 .tone-ink {
   background:
     linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0)),
-    linear-gradient(135deg, #64606d, #3a3238 58%, #19161b);
+    linear-gradient(135deg, #8a397f, #3f173f 58%, #190d2b);
 }
 
 @media (max-width: 1100px) {
@@ -1103,6 +1117,7 @@ body.overlay-open {
   .header-actions {
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   .header-action {

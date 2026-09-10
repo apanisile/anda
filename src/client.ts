@@ -1,11 +1,32 @@
 type CartItem = { id: string; name: string; price: number; size: string; color: string; tone: string; quantity: number };
 type SearchProduct = { name: string; category: string; price: number; href: string };
 
+type MarketCode = "NG" | "US" | "GB";
+const markets: Record<MarketCode, { locale: string; currency: string; rate: number }> = {
+  NG: { locale: "en-NG", currency: "NGN", rate: 1 },
+  US: { locale: "en-US", currency: "USD", rate: 0.00063 },
+  GB: { locale: "en-GB", currency: "GBP", rate: 0.00047 }
+};
+const browserMarket: MarketCode = navigator.language === "en-US" ? "US" : navigator.language === "en-GB" ? "GB" : "NG";
+let activeMarket = (localStorage.getItem("anda-market") as MarketCode) || browserMarket;
+if (!markets[activeMarket]) activeMarket = "NG";
+
 const $ = <T extends Element>(selector: string): T | null => document.querySelector<T>(selector);
 const $$ = <T extends Element>(selector: string): T[] => Array.from(document.querySelectorAll<T>(selector));
-const formatPrice = (price: number): string => new Intl.NumberFormat("en-US", {
-  style: "currency", currency: "USD", maximumFractionDigits: 0
-}).format(price);
+const formatPrice = (price: number): string => {
+  const market = markets[activeMarket];
+  return new Intl.NumberFormat(market.locale, {
+    style: "currency", currency: market.currency, maximumFractionDigits: 0
+  }).format(price * market.rate);
+};
+
+function refreshMarketPrices(): void {
+  $$<HTMLElement>("[data-display-price]").forEach((node) => {
+    node.textContent = formatPrice(Number(node.dataset.price ?? 0));
+  });
+  $$<HTMLSelectElement>("[data-market-select]").forEach((select) => { select.value = activeMarket; });
+  renderBag();
+}
 
 const menuToggle = $<HTMLButtonElement>(".menu-toggle");
 const headerDrawer = $<HTMLElement>(".header-drawer");
@@ -102,7 +123,12 @@ searchInput?.addEventListener("input", () => {
 
 const storageKey = "anda-cart";
 let cart: CartItem[] = [];
-try { cart = JSON.parse(localStorage.getItem(storageKey) ?? "[]") as CartItem[]; } catch { cart = []; }
+try {
+  cart = (JSON.parse(localStorage.getItem(storageKey) ?? "[]") as CartItem[]).map((item) => ({
+    ...item,
+    price: item.price < 1000 ? item.price * 1000 : item.price
+  }));
+} catch { cart = []; }
 const saveCart = (): void => {
   try { localStorage.setItem(storageKey, JSON.stringify(cart)); } catch { /* Cart remains usable this session. */ }
 };
@@ -124,15 +150,16 @@ function renderBag(): void {
     <div class="bag-item-actions"><div class="bag-quantity"><button data-cart-decrease="${item.id}" aria-label="Decrease quantity">−</button><span>${item.quantity}</span><button data-cart-increase="${item.id}" aria-label="Increase quantity">+</button></div>
     <button type="button" data-remove-item="${item.id}">Remove</button></div></div></article>`).join("");
   const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  const remaining = Math.max(0, 250 - subtotal);
+  const shippingThreshold = 250000;
+  const remaining = Math.max(0, shippingThreshold - subtotal);
   const subtotalNode = $<HTMLElement>("[data-bag-subtotal]");
   const message = $<HTMLElement>("[data-shipping-message]");
   const value = $<HTMLElement>("[data-shipping-value]");
   const progress = $<HTMLElement>("[data-shipping-progress]");
   if (subtotalNode) subtotalNode.textContent = formatPrice(subtotal);
-  if (message) message.textContent = remaining ? "Add more for complimentary shipping" : "Complimentary shipping unlocked";
+  if (message) message.textContent = remaining ? `Add ${formatPrice(remaining)} more for complimentary shipping` : "Complimentary shipping unlocked";
   if (value) value.textContent = remaining ? formatPrice(remaining) : "Ready";
-  if (progress) progress.style.width = `${Math.min(100, subtotal / 2.5)}%`;
+  if (progress) progress.style.width = `${Math.min(100, (subtotal / shippingThreshold) * 100)}%`;
   bagSummary.hidden = false;
 }
 
@@ -245,4 +272,10 @@ $$<HTMLButtonElement>("[data-sort]").forEach((button) => button.addEventListener
 }));
 
 renderBag();
+$$<HTMLSelectElement>("[data-market-select]").forEach((select) => select.addEventListener("change", () => {
+  activeMarket = select.value as MarketCode;
+  localStorage.setItem("anda-market", activeMarket);
+  refreshMarketPrices();
+}));
+refreshMarketPrices();
 requestAnimationFrame(() => document.body.classList.add("is-ready"));

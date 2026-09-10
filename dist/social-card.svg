@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#efe4d4"/>
-  <circle cx="1040" cy="90" r="330" fill="#b66743" opacity=".82"/>
-  <circle cx="1010" cy="610" r="390" fill="#63786b" opacity=".84"/>
-  <text x="90" y="295" font-family="Arial, sans-serif" font-size="170" font-weight="700" fill="#231f1b">Anda</text>
-  <text x="98" y="385" font-family="Arial, sans-serif" font-size="38" fill="#4b4037">Ease, cut with intention.</text>
+  <rect width="1200" height="630" fill="#fff1d7"/>
+  <circle cx="1040" cy="90" r="330" fill="#f05a3c" opacity=".9"/>
+  <circle cx="1010" cy="610" r="390" fill="#2453ff" opacity=".88"/>
+  <circle cx="1190" cy="350" r="180" fill="#f4b400" opacity=".82"/>
+  <text x="90" y="295" font-family="Arial, sans-serif" font-size="170" font-weight="700" fill="#3f173f">Anda</text>
+  <text x="98" y="385" font-family="Arial, sans-serif" font-size="38" fill="#654b61">Ease, cut with intention.</text>
 </svg>

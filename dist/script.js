@@ -1,9 +1,28 @@
 "use strict";
+const markets = {
+    NG: { locale: "en-NG", currency: "NGN", rate: 1 },
+    US: { locale: "en-US", currency: "USD", rate: 0.00063 },
+    GB: { locale: "en-GB", currency: "GBP", rate: 0.00047 }
+};
+const browserMarket = navigator.language === "en-US" ? "US" : navigator.language === "en-GB" ? "GB" : "NG";
+let activeMarket = localStorage.getItem("anda-market") || browserMarket;
+if (!markets[activeMarket])
+    activeMarket = "NG";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
-const formatPrice = (price) => new Intl.NumberFormat("en-US", {
-    style: "currency", currency: "USD", maximumFractionDigits: 0
-}).format(price);
+const formatPrice = (price) => {
+    const market = markets[activeMarket];
+    return new Intl.NumberFormat(market.locale, {
+        style: "currency", currency: market.currency, maximumFractionDigits: 0
+    }).format(price * market.rate);
+};
+function refreshMarketPrices() {
+    $$("[data-display-price]").forEach((node) => {
+        node.textContent = formatPrice(Number(node.dataset.price ?? 0));
+    });
+    $$("[data-market-select]").forEach((select) => { select.value = activeMarket; });
+    renderBag();
+}
 const menuToggle = $(".menu-toggle");
 const headerDrawer = $(".header-drawer");
 menuToggle?.addEventListener("click", () => {
@@ -110,7 +129,10 @@ searchInput?.addEventListener("input", () => {
 const storageKey = "anda-cart";
 let cart = [];
 try {
-    cart = JSON.parse(localStorage.getItem(storageKey) ?? "[]");
+    cart = JSON.parse(localStorage.getItem(storageKey) ?? "[]").map((item) => ({
+        ...item,
+        price: item.price < 1000 ? item.price * 1000 : item.price
+    }));
 }
 catch {
     cart = [];
@@ -138,7 +160,8 @@ function renderBag() {
     <div class="bag-item-actions"><div class="bag-quantity"><button data-cart-decrease="${item.id}" aria-label="Decrease quantity">−</button><span>${item.quantity}</span><button data-cart-increase="${item.id}" aria-label="Increase quantity">+</button></div>
     <button type="button" data-remove-item="${item.id}">Remove</button></div></div></article>`).join("");
     const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    const remaining = Math.max(0, 250 - subtotal);
+    const shippingThreshold = 250000;
+    const remaining = Math.max(0, shippingThreshold - subtotal);
     const subtotalNode = $("[data-bag-subtotal]");
     const message = $("[data-shipping-message]");
     const value = $("[data-shipping-value]");
@@ -146,11 +169,11 @@ function renderBag() {
     if (subtotalNode)
         subtotalNode.textContent = formatPrice(subtotal);
     if (message)
-        message.textContent = remaining ? "Add more for complimentary shipping" : "Complimentary shipping unlocked";
+        message.textContent = remaining ? `Add ${formatPrice(remaining)} more for complimentary shipping` : "Complimentary shipping unlocked";
     if (value)
         value.textContent = remaining ? formatPrice(remaining) : "Ready";
     if (progress)
-        progress.style.width = `${Math.min(100, subtotal / 2.5)}%`;
+        progress.style.width = `${Math.min(100, (subtotal / shippingThreshold) * 100)}%`;
     bagSummary.hidden = false;
 }
 bagItems?.addEventListener("click", (event) => {
@@ -287,4 +310,10 @@ $$("[data-sort]").forEach((button) => button.addEventListener("click", () => {
     sorted.forEach((card) => productGrid.append(card));
 }));
 renderBag();
+$$("[data-market-select]").forEach((select) => select.addEventListener("change", () => {
+    activeMarket = select.value;
+    localStorage.setItem("anda-market", activeMarket);
+    refreshMarketPrices();
+}));
+refreshMarketPrices();
 requestAnimationFrame(() => document.body.classList.add("is-ready"));

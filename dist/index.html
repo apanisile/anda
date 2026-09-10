@@ -8,13 +8,17 @@
     
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles-v2.css" /><script defer src="script-v2.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" /><link rel="stylesheet" href="styles-v3.css" /><script defer src="script-v3.js"></script>
   </head><body class="theme-sand page-enter">
-    <div class="announcement-bar">Complimentary express shipping on orders over $250</div>
+    <div class="announcement-bar">Complimentary express shipping on orders over ₦250,000</div>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="Anda home">Anda</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation"><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <div class="header-drawer" id="site-navigation"><nav class="main-nav"><a href="collection.html">Shop All</a><a href="sub-collection.html">Sets</a><a href="product-venti-lounge-set.html">Featured Product</a><a href="index.html#journal">World of Anda</a></nav><div class="header-actions">
+  <label class="market-selector"><span class="sr-only">Shopping location</span>
+    <select data-market-select aria-label="Shopping location">
+      <option value="NG">Nigeria (₦)</option><option value="US">United States ($)</option><option value="GB">United Kingdom (£)</option>
+    </select></label>
   <button class="header-action" type="button" data-open-search>Search</button>
   <button class="header-action" type="button" data-open-bag>Bag (<span data-bag-count>0</span>)</button></div></div>
     </header><main>
@@ -29,22 +33,22 @@
       <article class="editorial-panel panel-ink"><p class="eyebrow">World of Anda</p><h2>Journal stories, gatherings and destination edits.</h2><a class="text-link light" href="#journal">Enter the journal</a></article></section>
     <section class="section-heading"><div><p class="eyebrow">Shop The Edit</p><h2>New season, filtered through category.</h2></div><a class="text-link" href="collection.html">View all</a></section>
     <section class="product-rail"><a class="product-tile reveal-card" style="--card-index:0" href="product-venti-lounge-set.html"
-      data-product-card data-category="lounge" data-price="240" data-release="10">
+      data-product-card data-category="lounge" data-price="240000" data-release="10">
       <div class="tile-image tone-clay"><span class="image-loading-label">Anda</span></div>
       <p class="tile-name">Venti Lounge Set</p><p class="tile-meta">Shirt and trousers</p>
-      <p class="tile-price">$240</p></a><a class="product-tile reveal-card" style="--card-index:1" href="product-serein-short-set.html"
-      data-product-card data-category="shorts" data-price="195" data-release="9">
+      <p class="tile-price" data-display-price data-price="240000">₦240,000</p></a><a class="product-tile reveal-card" style="--card-index:1" href="product-serein-short-set.html"
+      data-product-card data-category="shorts" data-price="195000" data-release="9">
       <div class="tile-image tone-oasis"><span class="image-loading-label">Anda</span></div>
       <p class="tile-name">Serein Short Set</p><p class="tile-meta">Relaxed two-piece</p>
-      <p class="tile-price">$195</p></a><a class="product-tile reveal-card" style="--card-index:2" href="product-noma-shirt.html"
-      data-product-card data-category="tops" data-price="110" data-release="8">
+      <p class="tile-price" data-display-price data-price="195000">₦195,000</p></a><a class="product-tile reveal-card" style="--card-index:2" href="product-noma-shirt.html"
+      data-product-card data-category="tops" data-price="110000" data-release="8">
       <div class="tile-image tone-sage"><span class="image-loading-label">Anda</span></div>
       <p class="tile-name">Noma Shirt</p><p class="tile-meta">Soft linen blend</p>
-      <p class="tile-price">$110</p></a><a class="product-tile reveal-card" style="--card-index:3" href="product-turi-trouser-set.html"
-      data-product-card data-category="trousers" data-price="265" data-release="7">
+      <p class="tile-price" data-display-price data-price="110000">₦110,000</p></a><a class="product-tile reveal-card" style="--card-index:3" href="product-turi-trouser-set.html"
+      data-product-card data-category="trousers" data-price="265000" data-release="7">
       <div class="tile-image tone-night"><span class="image-loading-label">Anda</span></div>
       <p class="tile-name">Turi Trouser Set</p><p class="tile-meta">Fluid tailoring</p>
-      <p class="tile-price">$265</p></a></section>
+      <p class="tile-price" data-display-price data-price="265000">₦265,000</p></a></section>
     <section class="journal-section" id="journal"><div class="journal-copy"><p class="eyebrow">Treasure Journal</p><h2>Campaign energy, translated into an owned world.</h2>
       <p>Explore styling notes, studio stories and the craft behind an easy Anda wardrobe.</p></div>
       <div class="journal-stack"><div class="journal-card"><span>Desert Morning</span><strong>Styling Notes</strong></div><div class="journal-card alt"><span>Studio Dispatch</span><strong>Craft + construction</strong></div></div></section>
@@ -69,7 +73,7 @@
       <div class="bag-summary" data-bag-summary hidden>
         <div class="shipping-copy"><span data-shipping-message></span><strong data-shipping-value></strong></div>
         <div class="shipping-track"><span data-shipping-progress></span></div>
-        <div><span>Subtotal</span><strong data-bag-subtotal>$0</strong></div>
+        <div><span>Subtotal</span><strong data-bag-subtotal>₦0</strong></div>
         <p>Shipping and taxes are calculated at checkout.</p>
         <button class="button primary full" type="button" disabled>Checkout coming soon</button>
       </div>
@@ -91,4 +95,4 @@
     </section>
   </div>
   <div class="cart-toast" role="status" aria-live="polite" data-cart-toast hidden>Added to your bag</div>
-  <script id="product-search-data" type="application/json">[{"name":"Venti Lounge Set","category":"Lounge sets","price":240,"href":"product-venti-lounge-set.html"},{"name":"Serein Short Set","category":"Shirt and shorts","price":195,"href":"product-serein-short-set.html"},{"name":"Noma Shirt","category":"Tops","price":110,"href":"product-noma-shirt.html"},{"name":"Turi Trouser Set","category":"Shirt and trousers","price":265,"href":"product-turi-trouser-set.html"},{"name":"Kori Box Shirt","category":"Tops","price":115,"href":"product-kori-box-shirt.html"},{"name":"Ayo Trouser Set","category":"Shirt and trousers","price":255,"href":"product-ayo-trouser-set.html"},{"name":"Tani Camp Shirt","category":"Tops","price":125,"href":"product-tani-camp-shirt.html"},{"name":"Mira Lounge Set","category":"Lounge sets","price":220,"href":"product-mira-lounge-set.html"},{"name":"Noor Short Set","category":"Shirt and shorts","price":205,"href":"product-noor-short-set.html"},{"name":"Rani Relaxed Shirt","category":"Tops","price":105,"href":"product-rani-relaxed-shirt.html"}]</script></body></html>
+  <script id="product-search-data" type="application/json">[{"name":"Venti Lounge Set","category":"Lounge sets","price":240000,"href":"product-venti-lounge-set.html"},{"name":"Serein Short Set","category":"Shirt and shorts","price":195000,"href":"product-serein-short-set.html"},{"name":"Noma Shirt","category":"Tops","price":110000,"href":"product-noma-shirt.html"},{"name":"Turi Trouser Set","category":"Shirt and trousers","price":265000,"href":"product-turi-trouser-set.html"},{"name":"Kori Box Shirt","category":"Tops","price":115000,"href":"product-kori-box-shirt.html"},{"name":"Ayo Trouser Set","category":"Shirt and trousers","price":255000,"href":"product-ayo-trouser-set.html"},{"name":"Tani Camp Shirt","category":"Tops","price":125000,"href":"product-tani-camp-shirt.html"},{"name":"Mira Lounge Set","category":"Lounge sets","price":220000,"href":"product-mira-lounge-set.html"},{"name":"Noor Short Set","category":"Shirt and shorts","price":205000,"href":"product-noor-short-set.html"},{"name":"Rani Relaxed Shirt","category":"Tops","price":105000,"href":"product-rani-relaxed-shirt.html"}]</script></body></html>
